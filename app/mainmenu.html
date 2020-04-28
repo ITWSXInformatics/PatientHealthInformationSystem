@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>United Health Care User Health Data Platform</title>
+		<!-- <link rel="stylesheet" href="app.css">-->
+		<meta name="description" content="">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="https://formden.com/static/cdn/bootstrap-iso.css" />
+		<!--Font Awesome (added because you use icons in your prepend/append)-->
+		<link rel="stylesheet" href="https://formden.com/static/cdn/font-awesome/4.4.0/css/font-awesome.min.css" />
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+	</head>
+	<body onload="save_token()">
+		<nav class="navbar navbar-inverse">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<a class="navbar-brand" href="mainmenu.html">RPI Xinformatics Health Information Portal</a>
+				</div>
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="index.html"><span class="glyphicon glyphicon-user"></span> Logout</a></li>
+					<!--   <li><a href="mainmenu.html"><span class="glyphicon glyphicon-log-in"></span> Login with Microsoft</a></li>-->
+				</ul>
+			</div>
+		</nav>
+		<div class="menu">
+			<div class="col-md-7 col-md-offset-2">
+				<div class="wrapper">
+					<br><br>
+					<div class="container-fluid text-center">
+						<div class="row">
+							<div class="col-sm-4">
+								<h3>Fitbit User</h3>
+								<img src="/img/fitbit.png" width="39" height="39">
+								<p>Use your fitbit account to sync your heart rate data</p>
+								<!-- <a href="https://www.fitbit.com/oauth2/authorize?response_type=token&client_id=22BCFK&redirect_uri=https%3A%2F%2Fapps.hdap.gatech.edu%2Fnewpghd1frontend%2Freport.html&scope=activity%20heartrate%20location%20nutrition%20profile%20settings%20sleep%20social%20weight&expires_in=604800" class="btn btn-primary btn-block" role="button">Fitbit User Login</a> -->
+								<a href="https://google.com" class="btn btn-primary btn-block" role="button">Fitbit User Login</a>
+							</div>
+							<div class="col-sm-4">
+								<h3>Create Profile in FHIR</h3>
+								<img src="/img/profile.png" width="39" height="39">
+								<p>For first time user, please create profile in FHIR</p>
+								<a href="newuser.html" class="btn btn-primary btn-block" role="button">Create Profile </a>
+							</div>
+							<div class="col-sm-4">
+								<h3>GET User ID</h3>
+								<img src="/img/id.png" width="39" height="39">
+								<p>For existing users, please get your user ID from FHIR</p>
+								<a href="get_id.html" class="btn btn-primary btn-block" role="button">Get User ID from FHIR </a>
+							</div>
+						</div>
+					</div>
+					<br><br>
+				</div>
+			</div>
+		</div>
+		<script>
+		function save_token() {
+			if (sessionStorage.getItem('number') === null) {
+			sessionStorage.setItem('number', '1');
+			alert("You are going to be directed to Microsoft website for logging in. Please contact admin first to add you as an authorized user.");
+			get_code();
+			}
+			else if (sessionStorage.getItem('number') == '1'){
+				sessionStorage.setItem('number', '2');
+				var link = window.location.href;
+				// sessionStorage.setItem('link', link);
+				var code = link.split("=")[1].split("&")[0]
+				sessionStorage.setItem('code', code);
+				var xmlHttp = new XMLHttpRequest();
+				var url = "https://login.microsoftonline.com/2cfb880e-5fc7-4f04-8c45-b0c8b61f9659/oauth2/token";
+				xmlHttp.open("POST", url, false);
+				xmlHttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+				//local tune use
+				var data = "grant_type=authorization_code&client_id=d6987d56-090e-4128-a54c-e1da538f4203&code="+code+"&redirect_uri=http%3A%2F%2Flocalhost%3A8000%2Fmainmenu.html&resource=https://azurehealthcareapis.com&client_secret=x@2TO81c8=]mQ=G]9uhiM4H4AR?0521j";
+				xmlHttp.send(data);
+				var obj = JSON.parse(xmlHttp.response);
+				sessionStorage.setItem('token', obj.access_token);
+				}
+			}
+		function get_code() {
+			//local tune use
+			var url = "https://login.microsoftonline.com/common/oauth2/authorize?client_id=d6987d56-090e-4128-a54c-e1da538f4203&response_type=code&redirect_uri=http%3A%2F%2Flocalhost%3A8000%2Fmainmenu.html&response_mode=query&resource=https://azurehealthcareapis.com&state=1234";
+			window.open(url,'_self');
+		}
+		function get_token() {
+			var xmlHttp = new XMLHttpRequest();
+			var url = "https://login.microsoftonline.com/2cfb880e-5fc7-4f04-8c45-b0c8b61f9659/oauth2/token";
+			xmlHttp.open("POST", url, false);
+			xmlHttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+			//local tune use
+			var data = "grant_type=authorization_code&client_id=d6987d56-090e-4128-a54c-e1da538f4203&code="+code+"&redirect_uri=http%3A%2F%2Flocalhost%3A8000%2Fmainmenu.html&resource=https://azurehealthcareapis.com&client_secret=x@2TO81c8=]mQ=G]9uhiM4H4AR?0521j";
+			xmlHttp.send(data);
+			var obj = JSON.parse(xmlHttp.response);
+			alert(obj);
+			sessionStorage.setItem('token', obj.access_token);
+		}
+		</script>
+		<footer class="page-footer font-small blue">
+			<div class="col-md-6 col-md-offset-3">
+				<br><br>
+				<div class="footer-copyright text-center py-3" style="position:center-absolute;bottom:0;">© RPI Xinformatics Health Information Portal</div>
+				<br><br>
+				<div class="footer-images">
+					<img class="img-responsive mx-auto d-block" src="img/logo.png" alt="logo"  style="position:center ;bottom:0;" >
+				</div>
+			</div>
+		</footer>
+	</body>
+</html>
