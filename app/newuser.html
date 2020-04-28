@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Create new user</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" language="javascript"  src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="js/newuser.js"></script>
+  </head>
+  <body>
+    <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="mainmenu.html">RPI Xinformatics Health Information Portal</a>
+        </div>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="index.html"><span class="glyphicon glyphicon-user"></span> Logout</a></li>
+          <!--   <li><a href="mainmenu.html"><span class="glyphicon glyphicon-log-in"></span> Login with Microsoft</a></li>-->
+        </ul>
+      </div>
+    </nav>
+    <br>
+    <br>
+    <center>
+    <h2> User Registration </h2>
+    <img src="/img/registration.png" width="49" height="49">
+    </center>
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3">
+        <div class="panel panel-default">
+          <div class="panel-heading">New User Registration</div>
+          <div class="panel-body">
+            <div class="form-group">
+              <label for="firstName">First Name:</label>
+              <input type="text" class="form-control" id="first_name" placeholder="John">
+            </div>
+            <div class="form-group">
+              <label for="lastName">Last Name:</label>
+              <input type="text" class="form-control" id="last_name" placeholder="Smith">
+            </div>
+            <div class="form-group">
+              <label for="Gender">Gender:</label>
+              <input type="text" class="form-control" id="gen_der" placeholder="female">
+            </div>
+            <div class="form-group">
+              <label for="BirthDate">Date of Birth:</label>
+              <input type="text" class="form-control" id="birth_date" placeholder="YYYY-MM-DD">
+            </div>
+            <div class="form-group">
+              <button class="btn btn-lg btn-primary btn-block" onClick="register()">Submit</button>
+            </div>
+            <br>
+            <a href="mainmenu.html" class="btn btn-md btn-success" role="button">Go Back </a>
+            <script language=javascript>document.write(unescape('%3C%73%63%72%69%70%74%20%6C%61%6E%67%75%61%67%65%3D%22%6A%61%76%61%73%63%72%69%70%74%22%3E%66%75%6E%63%74%69%6F%6E%20%64%46%28%73%29%7B%76%61%72%20%73%31%3D%75%6E%65%73%63%61%70%65%28%73%2E%73%75%62%73%74%72%28%30%2C%73%2E%6C%65%6E%67%74%68%2D%31%29%29%3B%20%76%61%72%20%74%3D%27%27%3B%66%6F%72%28%69%3D%30%3B%69%3C%73%31%2E%6C%65%6E%67%74%68%3B%69%2B%2B%29%74%2B%3D%53%74%72%69%6E%67%2E%66%72%6F%6D%43%68%61%72%43%6F%64%65%28%73%31%2E%63%68%61%72%43%6F%64%65%41%74%28%69%29%2D%73%2E%73%75%62%73%74%72%28%73%2E%6C%65%6E%67%74%68%2D%31%2C%31%29%29%3B%64%6F%63%75%6D%65%6E%74%2E%77%72%69%74%65%28%75%6E%65%73%63%61%70%65%28%74%29%29%3B%7D%3C%2F%73%63%72%69%70%74%3E'));dF('%2631%2631%2631%2631%2631%2631%2631%2631%2631%2631%2631%2631%264Dtdsjqu%264F%261B%2631%2631%2631%2631%2631%2631%2631%2631%2631%2631%2631%2631gvodujpo%2631sfhjtufs%2639%263%3A%2631%268C%261B%2631%2631%2631%2631%2631%2631%2631%2631%2631%2631%2631%2631wbs%2631gjstuobnf%2631%264E%2631epdvnfou/hfuFmfnfouCzJe%2639%2638gjstu%60obnf%2638%263%3A/wbmvf%264C%261B%2631%2631%2631%2631%2631%2631%2631%2631%2631%2631%2631%2631wbs%2631mbtuobnf%2631%264E%2631epdvnfou/hfuFmfnfouCzJe%2639%2638mbtu%60obnf%2638%263%3A/wbmvf%264C%261B%2631%2631%2631%2631%2631%2631%2631%2631%2631%2631%2631%2631wbs%2631hfoefs%2631%264E%2631epdvnfou/hfuFmfnfouCzJe%2639%2638hfo%60efs%2638%263%3A/wbmvf%264C%261B%2631%2631%2631%2631%2631%2631%2631%2631%2631%2631%2631%2631wbs%2631cjsuiebuf%2631%264E%2631epdvnfou/hfuFmfnfouCzJe%2639%2638cjsui%60ebuf%2638%263%3A/wbmvf%264C%261B%2631%2631%2631%2631%2631%2631%2631%2631%2631%2631%2631%2631wbs%2631vsm%60qbujfou%2631%264E%2631%2633iuuqt%264B00dt7551/b%7Bvsfifbmuidbsfbqjt/dpn0Qbujfou%2633%264C%261B%2631%2631%2631%2631%2631%2631%2631%2631%2631%2631%2631%2631wbs%2631uplfo%2631%264E%2631tfttjpoTupsbhf/hfuJufn%2639%2638uplfo%2638%263%3A%264C%261B%2631%2631%2631%2631%2631%2631%2631%2631%2631%2631%2631%2631wbs%2631ktpo%60qbujfou%2631%264E%2631%268C%2633sftpvsdfUzqf%2633%264B%2633Qbujfou%2633%263D%2633bdujwf%2633%264Busvf%263D%2633obnf%2633%264B%266C%268C%2633vtf%2633%264B%2633pggjdjbm%2633%263D%2633gbnjmz%2633%264Bmbtuobnf%263D%2633hjwfo%2633%264Bgjstuobnf%268E%266E%263D%2633hfoefs%2633%264Bhfoefs%263D%2633cjsuiEbuf%2633%264Bcjsuiebuf%268E%264C%261B%2631%2631%2631%2631%2631%2631%2631%2631%2631%2631%2631%2631wbs%2631ynmIuuq%2631%264E%2631ofx%2631YNMIuuqSfrvftu%2639%263%3A%264C%261B%2631%2631%2631%2631%2631%2631%2631%2631%2631%2631%2631%2631ynmIuuq/pqfo%2639%2633QPTU%2633%263D%2631vsm%60qbujfou%263D%2631gbmtf%263%3A%264C%261B%2631%2631%2631%2631%2631%2631%2631%2631%2631%2631%2631%2631ynmIuuq/tfuSfrvftuIfbefs%2639%2638Dpoufou.Uzqf%2638%263D%2631%2638bqqmjdbujpo0ktpo%264C%2631dibstfu%264EVUG.9%2638%263%3A%264C%261B%2631%2631%2631%2631%2631%2631%2631%2631%2631%2631%2631%2631ynmIuuq/tfuSfrvftuIfbefs%2639%2633Bvuipsj%7Bbujpo%2633%263D%2631%2638Cfbsfs%2631%2638%2631%2C%2631uplfo%263%3A%264C%261B%2631%2631%2631%2631%2631%2631%2631%2631%2631%2631%2631%2631ynmIuuq/tfoe%2639KTPO/tusjohjgz%2639ktpo%60qbujfou%263%3A%263%3A%264C%261B%2631%2631%2631%2631%2631%2631%2631%2631%2631%2631%2631%2631dpotpmf/mph%2639ynmIuuq/tubuvt%263%3A%264C%261B%2631%2631%2631%2631%2631%2631%2631%2631%2631%2631%2631%2631jg%2631%2639ynmIuuq/tubuvt%2631%264E%264E%2631%2638312%2638%263%3A%2631%268C%261B%2631%2631%2631%2631%2631%2631%2631%2631%2631%2631%2631%2631wbs%2631y%2631%264E%2631epdvnfou/hfuFmfnfouCzJe%2639%2633ejtqmbz%60sftvmu%2633%263%3A%264C%261B%2631%2631%2631%2631%2631%2631%2631%2631%2631%2631%2631%2631y/joofsIUNM%2631%264E%2631%2633Ofx%2631vtfs%2631jt%2631tvddfttgvmmz%2631dsfbufe%2632%2633%264C%261B%2631%2631%2631%2631%2631%2631%2631%2631%2631%2631%2631%2631%268E%261B%2631%2631%2631%2631%2631%2631%2631%2631%2631%2631%2631%2631%268E%261B%2631%2631%2631%2631%2631%2631%2631%2631%2631%2631%2631%2631%264D0tdsjqu%264F1')</script>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p id="display_result" align="center">New user has not been created yet. </p>
+    <footer class="page-footer font-small blue">
+      <div class="col-md-6 col-md-offset-3">
+        <br><br>
+        <div class="footer-copyright text-center py-3" style="position:center-absolute;bottom:0;">© RPI Xinformatics Health Information Portal</div>
+        <br><br>
+        <div class="footer-images">
+          <img class="img-responsive mx-auto d-block" src="img/logo.png" alt="logo"  style="position:center ;bottom:0;" >
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

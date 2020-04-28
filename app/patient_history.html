@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>RPI Xinformatics Health Information Portal</title>
+ <!-- <link rel="stylesheet" href="app.css">-->
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://formden.com/static/cdn/bootstrap-iso.css" />
+    <!--Font Awesome (added because you use icons in your prepend/append)-->
+    <link rel="stylesheet" href="https://formden.com/static/cdn/font-awesome/4.4.0/css/font-awesome.min.css" />
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<style>
+	body {
+	  font-family: "Lato", sans-serif;
+	  transition: background-color .5s;
+	}
+
+	.sidenav {
+	  height: 100%;
+	  width: 0;
+	  position: fixed;
+	  z-index: 1;
+	  top: 50px;
+	  left: 0;
+	  background-color: #111;
+	  overflow-x: hidden;
+	  transition: 0.5s;
+	  padding-top: 60px;
+	}
+
+	.sidenav a {
+	  padding: 8px 8px 8px 32px;
+	  text-decoration: none;
+	  font-size: 25px;
+	  color: #818181;
+	  display: block;
+	  transition: 0.3s;
+	}
+
+	.sidenav a:hover {
+	  color: #f1f1f1;
+	}
+
+	.sidenav .closebtn {
+	  position: absolute;
+	  top: 0;
+	  right: 25px;
+	  font-size: 36px;
+	  margin-left: 50px;
+	}
+
+	#main {
+	  transition: margin-left .5s;
+	  padding: 16px;
+	}
+
+	@media screen and (max-height: 450px) {
+	  .sidenav {padding-top: 15px;}
+	  .sidenav a {font-size: 18px;}
+	}
+	</style>
+
+</head>
+	<body>
+		<nav class="navbar navbar-inverse">
+			 <div class="container-fluid">
+				<div class="navbar-header">
+				<a class="navbar-brand" href="mainmenu.html">RPI Xinformatics Health Information Portal</a>	
+				</div>
+				<ul class="nav navbar-nav navbar-right">
+				<li><a href="index.html"><span class="glyphicon glyphicon-user"></span> Logout</a></li>
+				 <!--   <li><a href="mainmenu.html"><span class="glyphicon glyphicon-log-in"></span> Login with Microsoft</a></li>-->
+				</ul>
+			  </div>
+			</nav>
+		<div class="menu">
+			<div class="col-md-6 col-md-offset-3">
+				<div class="wrapper">
+					<div id="mySidenav" class="sidenav">
+						<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+							<!-- <li onclick="get_id()"><a href="#">Get Patient ID</a></li> -->
+							<li><a href="add.html"> Add</a></li>
+							<li><a href="delete.html">Delete</a></li>
+							<li><a href="query.html">Search</a></li>
+							<li><a href="mainmenu.html">Main Menu</a></li>
+							<!--<<li><a href="#">Visualize</a></li>-->
+					</div>
+
+					<div id="main">
+						  <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; Menu (click me) </span>
+						 	<header>
+								<h1>Enjoy your time in our website</h1>
+							</header>
+						<!-- <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; MENU</span>-->
+						 <footer class="page-footer font-small blue">
+							<div class="col-auto">
+								<br><br>
+								<div class="footer-copyright text-center py-3" style="position:center-absolute;bottom:0;">© RPI Xinformatics</div>
+								<br><br>
+								<div class="footer-images">
+									<img class="img-responsive mx-auto d-block" src="img/logo.png" alt="logo"  style="position:center ;bottom:0;" >
+								</div>
+							</div>
+						</footer>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script>
+			function get_id() {
+				var url = "https://login.microsoftonline.com/common/oauth2/authorize?client_id=d6987d56-090e-4128-a54c-e1da538f4203&response_type=code&redirect_uri=http%3A%2F%2Flocalhost%3A8000%2Fmainmenu.html&response_mode=query&resource=https://azurehealthcareapis.com&state=1234";
+
+				window.open(url,'_self');
+			}
+		</script>
+		<script>
+			function openNav() {
+			  document.getElementById("mySidenav").style.width = "250px";
+			  document.getElementById("main").style.marginLeft = "250px";
+			  document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
+			}
+
+			function closeNav() {
+			  document.getElementById("mySidenav").style.width = "0";
+			  document.getElementById("main").style.marginLeft= "0";
+			  document.body.style.backgroundColor = "white";
+			}
+		</script>
+
+	</body>
+</html>
