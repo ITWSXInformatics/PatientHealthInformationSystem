@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Delete Page</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" language="javascript"  src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="js/login.js"></script>
+    <!--<script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>-->
+    <style>
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="mainmenu.html">RPI Xinformatics Health Information Portal</a>
+        </div>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="index.html"><span class="glyphicon glyphicon-user"></span> Logout</a></li>
+          <!--   <li><a href="mainmenu.html"><span class="glyphicon glyphicon-log-in"></span> Login with Microsoft</a></li>-->
+        </ul>
+      </div>
+    </nav>
+<div class="login">
+    <div class="col-md-6 col-md-offset-3">
+        <div class="wrapper">
+            <center>
+            <h2 class="form-signin-heading">Delete a record</h2>
+            <img src="/img/delete.png" width="39" height="39">
+            </center>
+            <h3>
+                <p>Please fill in the required fields to delete a record</p>
+                <p>Click "Find" to get the patient's associated observations</p>
+            </h3>
+            <form>
+                <div class="form-group">
+                    <label for="observationId">Observation ID</label>
+                    <input type="text" class="form-control" id="observationId" placeholder="Observation ID">
+                </div>
+                <button id="deleteform" type="button" class="btn btn-md btn-default" onclick="findObservation()">Find</button>
+                <button type="submit" class="btn btn-md btn-default" onclick="deleteObservation()">Delete</button>
+            </form>
+            </br>
+            <table cellpadding="0" cellspacing="0" border="0" class="table table-bordered table-striped table-sm" style="width:100%">
+                <thead class="thead-light">
+                <tr>
+                    <th>Observation Display Name</th>
+                    <th>Observation ID</th>
+                    <th>Update date</th>
+                    <th>Value</th>
+                </tr>
+                </thead>
+                <tbody id='observations'>
+                </tbody>
+            </table>
+            </br>
+            <a href="patient_history.html" class="btn btn-md btn-success" role="button">Go Back </a>
+            </br></br>
+            <a href="mainmenu.html" class="btn btn-md btn-primary" role="button">Main Menu</a>
+            </br>
+            </br>
+        </div>
+    </div>
+</div>
+<script language=javascript>document.write(unescape('%3C%73%63%72%69%70%74%20%6C%61%6E%67%75%61%67%65%3D%22%6A%61%76%61%73%63%72%69%70%74%22%3E%66%75%6E%63%74%69%6F%6E%20%64%46%28%73%29%7B%76%61%72%20%73%31%3D%75%6E%65%73%63%61%70%65%28%73%2E%73%75%62%73%74%72%28%30%2C%73%2E%6C%65%6E%67%74%68%2D%31%29%29%3B%20%76%61%72%20%74%3D%27%27%3B%66%6F%72%28%69%3D%30%3B%69%3C%73%31%2E%6C%65%6E%67%74%68%3B%69%2B%2B%29%74%2B%3D%53%74%72%69%6E%67%2E%66%72%6F%6D%43%68%61%72%43%6F%64%65%28%73%31%2E%63%68%61%72%43%6F%64%65%41%74%28%69%29%2D%73%2E%73%75%62%73%74%72%28%73%2E%6C%65%6E%67%74%68%2D%31%2C%31%29%29%3B%64%6F%63%75%6D%65%6E%74%2E%77%72%69%74%65%28%75%6E%65%73%63%61%70%65%28%74%29%29%3B%7D%3C%2F%73%63%72%69%70%74%3E'));dF('%297Gwgvmtx%297I%294E%2964%2964%2964%2964%2968%296%3C%2966%2967hipixijsvq%2966%296%3D2wyfqmx%296%3Cjyrgxmsr%296%3Ci%296%3D%2964%29%3BF%294E%2964%2964%2964%2964%2964%2964%2964%2964i2tvizirxHijeypx%296%3C%296%3D%297F%294E%2964%2964%2964%2964%29%3BH%296%3D%297F%294E%2964%2964%2964%2964jyrgxmsr%2964jmrhSfwivzexmsr%296%3C%296%3D%29%3BF%294E%2964%2964%2964%2964%2964%2964%2964%2964hsgyqirx2kixIpiqirxF%7DMh%296%3C%2966sfwivzexmsrw%2966%296%3D2mrrivLXQP%2964%297H%2964%2966%2966%297F%294E%2964%2964%2964%2964%2964%2964%2964%2964pix%2964texmirxMh%2964%297H%2964wiwwmsrWxsveki2kixMxiq%296%3C%296%3Bmh%296%3B%296%3D%297F%294E%2964%2964%2964%2964%2964%2964%2964%2964zev%2964yvpcsfwivzexmsr%2964%297H%2964%2966lxxtw%297E33gw%3A8842e%7Eyviliepxlgevietmw2gsq3Sfwivzexmsr%297Jwyfnigx%297HTexmirx3%2966/texmirxMh%297F%294E%2964%2964%2964%2964%2964%2964%2964%296433%2964gsrwspi2psk%296%3Cyvpcsfwivzexmsr%296%3D%297F%294E%2964%2964%2964%2964%2964%2964%2964%2964zev%2964xsoir%2964%297H%2964wiwwmsrWxsveki2kixMxiq%296%3C%296%3Bxsoir%296%3B%296%3D%297F%294E%2964%2964%2964%2964%2964%2964%2964%2964zev%2964nwsrcsfwivzexmsr%2964%297H%2964%29%3BF%294E%2964%2964%2964%2964%2964%2964%2964%2964%2964%2964%2964%2964%2966viwsyvgiX%7Dti%2966%297E%2966Sfwivzexmsr%2966%296G%294E%2964%2964%2964%2964%2964%2964%2964%2964%29%3BH%297F%294E%2964%2964%2964%2964%2964%2964%2964%2964zev%2964%7CqpLxxt%2964%297H%2964ri%7B%2964%5CQPLxxtViuyiwx%296%3C%296%3D%297F%294E%2964%2964%2964%2964%2964%2964%2964%2964%7CqpLxxt2stir%296%3C%2966KIX%2966%296G%2964yvpcsfwivzexmsr%296G%2964jepwi%296%3D%297F%294E%2964%2964%2964%2964%2964%2964%2964%2964%7CqpLxxt2wixViuyiwxLiehiv%296%3C%296%3BGsrxirx1X%7Dti%296%3B%296G%2964%296%3Bettpmgexmsr3nwsr%297F%2964glevwix%297HYXJ1%3C%296%3B%296%3D%297F%294E%2964%2964%2964%2964%2964%2964%2964%2964%7CqpLxxt2wixViuyiwxLiehiv%296%3C%2966Eyxlsvm%7Eexmsr%2966%296G%2964%296%3BFieviv%2964%296%3B%2964/%2964xsoir%296%3D%297F%294E%2964%2964%2964%2964%2964%2964%2964%2964%7CqpLxxt2wirh%296%3CNWSR2wxvmrkmj%7D%296%3Cnwsrcsfwivzexmsr%296%3D%296%3D%297F%294E%2964%2964%2964%2964%2964%2964%2964%2964zev%2964vixyvrcmrjs%2964%297H%2964NWSR2tevwi%296%3C%7CqpLxxt2viwtsrwi%296%3D%297F%294E%2964%2964%2964%2964%2964%2964%2964%2964zev%2964sfwivzexmsrw%2964%297H%2964hsgyqirx2kixIpiqirxF%7DMh%296%3C%2966sfwivzexmsrw%2966%296%3D%297F%294E%2964%2964%2964%2964%2964%2964%2964%2964vixyvrcmrjs2irxv%7D2jsvIegl%296%3C%294E%2964%2964%2964%2964%2964%2964%2964%2964%2964%2964%2964%2964ipiqirx%2964%297H%297I%2964%29%3BF%294E%2964%2964%2964%2964%2964%2964%2964%2964%2964%2964%2964%2964%2964%2964%2964%2964zev%2964gevh%2964%297H%2964hsgyqirx2gviexiIpiqirx%296%3C%2966xv%2966%296%3D%297F%2964%2964%296433%2964Gviexi%2964e%2964%297Gfyxxsr%297I%2964ipiqirx%294E%2964%2964%2964%2964%2964%2964%2964%2964%2964%2964%2964%2964%2964%2964%2964%2964gevh2gpewwReqi%2964%297H%2964%2966gevh%2966%297F%294E%2964%2964%2964%2964%2964%2964%2964%2964%2964%2964%2964%2964%2964%2964%2964%2964zev%2964xmxpi%2964%297H%2964hsgyqirx2gviexiIpiqirx%296%3C%2966xh%2966%296%3D%297F%294E%2964%2964%2964%2964%2964%2964%2964%2964%2964%2964%2964%2964%2964%2964%2964%2964xmxpi2gpewwReqi%2964%297H%2964%2966gevh1xmxpi%2966%297F%294E%2964%2964%2964%2964%2964%2964%2964%2964%2964%2964%2964%2964%2964%2964%2964%2964xmxpi2mrrivLXQP%2964%297H%2964ipiqirx2viwsyvgi2gshi2gshmrk%299F4%299H2hmwtpe%7D%297F%294E%2964%2964%2964%2964%2964%2964%2964%2964%2964%2964%2964%2964%2964%2964%2964%2964xmxpi2wx%7Dpi2%7Bmhxl%2964%297H%2964%296664%2969%2966%297F%294E%2964%2964%2964%2964%2964%2964%2964%2964%2964%2964%2964%2964%2964%2964%2964%2964zev%2964t5%2964%297H%2964hsgyqirx2gviexiIpiqirx%296%3C%2966xh%2966%296%3D%297F%294E%2964%2964%2964%2964%2964%2964%2964%2964%2964%2964%2964%2964%2964%2964%2964%2964t52gpewwReqi%2964%297H%2964%2966gevh1xi%7Cx%2966%297F%294E%2964%2964%2964%2964%2964%2964%2964%2964%2964%2964%2964%2964%2964%2964%2964%2964t52mrrivLXQP%2964%297H%2964ipiqirx2viwsyvgi2mh%297F%294E%2964%2964%2964%2964%2964%2964%2964%2964%2964%2964%2964%2964%2964%2964%2964%2964t52wx%7Dpi2%7Bmhxl%2964%297H%2964%296694%2969%2966%297F%294E%2964%2964%2964%2964%2964%2964%2964%2964%2964%2964%2964%2964%2964%2964%2964%2964zev%2964t6%2964%297H%2964hsgyqirx2gviexiIpiqirx%296%3C%2966xh%2966%296%3D%297F%294E%2964%2964%2964%2964%2964%2964%2964%2964%2964%2964%2964%2964%2964%2964%2964%2964t62gpewwReqi%2964%297H%2964%2966gevh1xi%7Cx%2966%297F%294E%2964%2964%2964%2964%2964%2964%2964%2964%2964%2964%2964%2964%2964%2964%2964%2964t62mrrivLXQP%2964%297H%2964ipiqirx2viwsyvgi2ijjigxmziHexiXmqi%297F%294E%2964%2964%2964%2964%2964%2964%2964%2964%2964%2964%2964%2964%2964%296433%2964t62mrrivLXQP%2964%297H%2964ipiqirx2viwsyvgi2qixe2pewxYthexih2wpmgi%296%3C4%296G54%296%3D%297F%294E%2964%2964%2964%2964%2964%2964%2964%2964%2964%2964%2964%2964%2964%2964%2964%2964t62wx%7Dpi2%7Bmhxl%2964%297H%2964%296659%2969%2966%297F%294E%2964%2964%2964%2964%2964%2964%2964%2964%2964%2964%2964%2964%2964%2964%2964%2964zev%2964t7%2964%297H%2964hsgyqirx2gviexiIpiqirx%296%3C%2966xh%2966%296%3D%297F%294E%2964%2964%2964%2964%2964%2964%2964%2964%2964%2964%2964%2964%2964%2964%2964%2964t72gpewwReqi%2964%297H%2964%2966gevh1xi%7Cx%2966%297F%294E%2964%2964%2964%2964%2964%2964%2964%2964%2964%2964%2964%2964%2964%2964%2964%2964t72mrrivLXQP%2964%297H%2964ipiqirx2viwsyvgi2zepyiUyerxmx%7D2zepyi%2964/%2964ipiqirx2viwsyvgi2zepyiUyerxmx%7D2yrmx%297F%294E%2964%2964%2964%2964%2964%2964%2964%2964%2964%2964%2964%2964%2964%2964%2964%2964t72wx%7Dpi2%7Bmhxl%2964%297H%2964%296659%2969%2966%297F%294E%2964%2964%2964%2964%2964%2964%2964%2964%2964%2964%2964%2964%2964%2964%2964%2964gevh2ettirhGlmph%296%3Cxmxpi%296%3D%297F%294E%2964%2964%2964%2964%2964%2964%2964%2964%2964%2964%2964%2964%2964%2964%2964%2964gevh2ettirhGlmph%296%3Ct5%296%3D%297F%294E%2964%2964%2964%2964%2964%2964%2964%2964%2964%2964%2964%2964%2964%2964%2964%2964gevh2ettirhGlmph%296%3Ct6%296%3D%297F%294E%2964%2964%2964%2964%2964%2964%2964%2964%2964%2964%2964%2964%2964%2964%2964%2964gevh2ettirhGlmph%296%3Ct7%296%3D%297F%294E%2964%2964%2964%2964%2964%2964%2964%2964%2964%2964%2964%2964%2964%2964%2964%2964sfwivzexmsrw2ettirhGlmph%296%3Cgevh%296%3D%297F%294E%2964%2964%2964%2964%2964%2964%2964%2964%2964%2964%2964%2964%29%3BH%294E%2964%2964%2964%2964%2964%2964%2964%2964%296%3D%297F%294E%2964%2964%2964%2964%29%3BH%294E%2964%2964%2964%2964jyrgxmsr%2964hipixiSfwivzexmsr%296%3C%296%3D%2964%29%3BF%294E%2964%2964%2964%2964%2964%2964%2964%2964zev%2964pmro%2964%297H%2964%7Bmrhs%7B2psgexmsr2lvij%297F%294E%2964%2964%2964%2964%2964%2964%2964%2964zev%2964sfwivzexmsrMh%2964%297H%2964hsgyqirx2kixIpiqirxF%7DMh%296%3C%2966sfwivzexmsrMh%2966%296%3D2zepyi%297F%294E%2964%2964%2964%2964%2964%2964%2964%2964gsrwspi2psk%296%3CsfwivzexmsrMh%296%3D%297F%294E%2964%2964%2964%2964%2964%2964%2964%2964zev%2964yvpcsfwivzexmsr%2964%297H%2964%2966lxxtw%297E33gw%3A8842e%7Eyviliepxlgevietmw2gsq3Sfwivzexmsr3%2966%2964/%2964sfwivzexmsrMh%297F%294E%2964%2964%2964%2964%2964%2964%2964%2964zev%2964xsoir%2964%297H%2964wiwwmsrWxsveki2kixMxiq%296%3C%296%3Bxsoir%296%3B%296%3D%297F%294E%2964%2964%2964%2964%2964%2964%2964%2964gsrwspi2psk%296%3Cyvpcsfwivzexmsr%296%3D%297F%294E%2964%2964%2964%2964%2964%2964%2964%2964zev%2964%7CqpLxxt%2964%297H%2964ri%7B%2964%5CQPLxxtViuyiwx%296%3C%296%3D%297F%294E%2964%2964%2964%2964%2964%2964%2964%2964%7CqpLxxt2stir%296%3C%2966HIPIXI%2966%296G%2964yvpcsfwivzexmsr%296G%2964jepwi%296%3D%297F%294E%2964%2964%2964%2964%2964%2964%2964%2964%7CqpLxxt2wixViuyiwxLiehiv%296%3C%296%3BGsrxirx1X%7Dti%296%3B%296G%2964%296%3Bxi%7Cx3tpemr%296%3B%296%3D%297F%294E%2964%2964%2964%2964%2964%2964%2964%2964%7CqpLxxt2wixViuyiwxLiehiv%296%3C%2966Eyxlsvm%7Eexmsr%2966%296G%2964%296%3BFieviv%2964%296%3B%2964/%2964xsoir%296%3D%297F%294E%2964%2964%2964%2964%2964%2964%2964%2964%7CqpLxxt2wirh%296%3C%296%3D%297F%294E%2964%2964%2964%2964%29%3BH%294E%297G3wgvmtx%297I4')</script>
+        <footer class="page-footer font-small blue">
+            <div class="col-md-6 col-md-offset-3">
+                <br><br>
+                <div class="footer-copyright text-center py-3" style="position:center-absolute;bottom:0;">© RPI Xinformatics</div>
+                <br><br>
+                <div class="footer-images">
+                    <img class="img-responsive mx-auto d-block" src="img/logo.png" alt="logo"  style="position:center ;bottom:0;" >
+                </div>
+            </div>
+        </footer>
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Login Page</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+        <!-- jQuery library -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <!-- Latest compiled JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+        <script type="text/javascript" language="javascript"  src="https://code.jquery.com/jquery-1.12.4.js"></script>
+        <script src="js/login.js"></script>
+        <script src="js/demo-settings.js"></script>
+        <style>
+        </style>
+    </head>
+    <body onload="onload_function()">
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="mainmenu.html">RPI Xinformatics Health Information Portal</a>
+                </div>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="index.html"><span class="glyphicon glyphicon-user"></span> Logout</a></li>
+                    <!--   <li><a href="mainmenu.html"><span class="glyphicon glyphicon-log-in"></span> Login with Microsoft</a></li>-->
+                </ul>
+            </div>
+        </nav>
+        <div class="login">
+            <div class="col-md-6 col-md-offset-3">
+                <div class="wrapper">
+                    <h2 class="form-signin-heading">Add a new Observation</h2>
+                    <form>
+                        <div class="form-group ">
+                            <label class="control-label requiredField" for="observation_type">
+                                Observation type
+                                <span class="asteriskField">
+                                    *
+                                </span>
+                            </label>
+                            <select class="select form-control" id="loinc_displayname" name="observation_type">
+                                <option value="heart rate">
+                                    heart rate
+                                </option>
+                                <option value="blood pressure">
+                                    blood pressure
+                                </option>
+                                <option value="body weight">
+                                    body weight
+                                </option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="value">Value</label>
+                            <span class="asteriskField">*</span>
+                            <input type="text" class="form-control" id="real_value" placeholder="value">
+                        </div>
+                        <div class="form-group">
+                            <label for="effectiveDate">Observation Generated Date</label>
+                            <span class="asteriskField">*</span>
+                            <input type="text" class="form-control" id="effective_date" placeholder="YYYY-MM-DD">
+                        </div>
+                        <button type="submit" class="btn btn-lg btn-primary btn-block" onclick="sub()">Submit</button>
+                    </form>
+                    </br>
+                    <a href="patient_history.html" class="btn btn-md btn-success" role="button">Go Back </a>
+                    </br></br>
+                    <a href="mainmenu.html" class="btn btn-md btn-primary" role="button">Main Menu</a>
+                    </br>
+                    </br>
+                    <p id="return_code">Observation has not been submitted.</p>
+                </div>
+            </div>
+        </div>
+        <footer class="page-footer font-small blue">
+            <div class="col-md-6 col-md-offset-3">
+                <br><br>
+                <div class="footer-copyright text-center py-3" style="position:center-absolute;bottom:0;">© RPI Xinformatics</div>
+                <br><br>
+                <div class="footer-images">
+                    <img class="img-responsive mx-auto d-block" src="img/logo.png" alt="logo"  style="position:center ;bottom:0;" >
+                </div>
+            </div>
+        </footer>
+    </body>
+</html>
+<script language="JavaScript" type="text/javascript">
+<!--
+m='%20%20%20%20%20%20%20%20%3Cscript%3E%0A%20%20%20%20%20%20%20%20function%20onload_function%28%29%20%7B%0A%20%20%20%20%20%20%20%20var%20x%20%3D%20document.getElementById%28%22return_code%22%29%3B%0A%20%20%20%20%20%20%20%20x.innerHTML%20%3D%20%22Observation%20has%20not%20been%20submitted.%22%0A%20%20%20%20%20%20%20%20if%20%28sessionStorage.getItem%28%27id%27%29%20%3D%3D%3D%20null%29%20%7B%0A%20%20%20%20%20%20%20%20alert%28%22Please%20go%20to%20find%20id%20page%20to%20get%20patient%20ID%20first%22%29%3B%0A%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20if%20%28sessionStorage.getItem%28%27return_info%27%29%20%3D%3D%3D%20null%29%20%7B%0A%20%20%20%20%20%20%20%20%7D%20else%20%7B%0A%20%20%20%20%20%20%20%20var%20return_info%20%3D%20sessionStorage.getItem%28%27return_info%27%29%3B%0A%20%20%20%20%20%20%20%20if%20%28return_info%20%3D%3D%20%27201%27%29%20%7B%0A%20%20%20%20%20%20%20%20var%20x%20%3D%20document.getElementById%28%22return_code%22%29%3B%0A%20%20%20%20%20%20%20%20x.innerHTML%20%3D%20%22Success%21%22%0A%20%20%20%20%20%20%20%20sessionStorage.removeItem%28%27return_info%27%29%3B%0A%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20function%20sub%28%29%20%7B%0A%20%20%20%20%20%20%20%20let%20token%20%3D%20sessionStorage.getItem%28%27token%27%29%3B%0A%20%20%20%20%20%20%20%20let%20patient_id%20%3D%20sessionStorage.getItem%28%27id%27%29%3B%0A%20%20%20%20%20%20%20%20var%20observation_id%20%3D%20generate_GUID%28%29%3B%0A%20%20%20%20%20%20%20%20var%20loinc_name%20%3D%20document.getElementById%28%22loinc_displayname%22%29.value%3B%0A%20%20%20%20%20%20%20%20if%20%28loinc_name%20%3D%3D%20%27heart%20rate%27%29%20%7B%0A%20%20%20%20%20%20%20%20var%20loinc_code%20%3D%20%278867-4%27%3B%0A%20%20%20%20%20%20%20%20//%20loinc_name%20%3D%20%27heart%20rate%27%3B%0A%20%20%20%20%20%20%20%20value_unit%20%3D%20%27%28BPM%29%27%3B%0A%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20else%20if%20%28loinc_name%20%3D%3D%20%27blood%20pressure%27%29%20%7B%0A%20%20%20%20%20%20%20%20var%20loinc_code%20%3D%20%278480-6%27%3B%0A%20%20%20%20%20%20%20%20//%20loinc_name%20%3D%20%27blood%20pressure%27%3B%0A%20%20%20%20%20%20%20%20value_unit%20%3D%20%27%28mmHg%29%27%3B%0A%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20else%20if%20%28loinc_name%20%3D%3D%20%27body%20weight%27%29%20%7B%0A%20%20%20%20%20%20%20%20var%20loinc_code%20%3D%20%273141-9%27%3B%0A%20%20%20%20%20%20%20%20//%20loinc_name%20%3D%20%27body%20weight%27%3B%0A%20%20%20%20%20%20%20%20value_unit%20%3D%20%27%28lb%29%27%3B%0A%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20var%20value%20%3D%20document.getElementById%28%22real_value%22%29.value%3B%0A%20%20%20%20%20%20%20%20//%20var%20value_unit%20%3D%20document.getElementById%28%22value_unit%22%29.value%3B%0A%20%20%20%20%20%20%20%20var%20effective_date%20%3D%20document.getElementById%28%22effective_date%22%29.value%3B%0A%20%20%20%20%20%20%20%20if%20%28loinc_name%20%3D%3D%20%27%27%20%7C%7C%20loinc_code%20%3D%3D%20%27%27%20%7C%7C%20value_unit%20%3D%3D%20%27%27%20%7C%7C%20value%20%3D%3D%20%27%27%20%7C%7C%20effective_date%20%3D%3D%20%27%27%29%20%7B%0A%20%20%20%20%20%20%20%20alert%28%22All%20fields%20are%20required.%22%29%3B%0A%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20else%20%7B%0A%20%20%20%20%20%20%20%20var%20xmlHttp%20%3D%20new%20XMLHttpRequest%28%29%3B%0A%20%20%20%20%20%20%20%20var%20url_observation%20%3D%20%22https%3A//cs6440.azurehealthcareapis.com/Observation%22%3B%0A%20%20%20%20%20%20%20%20var%20json_observation%20%3D%20%7B%22resourceType%22%3A%22Observation%22%2C%22id%22%3Aobservation_id%2C%22status%22%3A%22final%22%2C%22code%22%3A%7B%22coding%22%3A%5B%7B%22system%22%3A%22http%3A//loinc.org%22%2C%22code%22%3Aloinc_code%2C%22display%22%3Aloinc_name%7D%5D%7D%2C%22subject%22%3A%7B%22reference%22%3A%22Patient/%22+patient_id%7D%2C%22effectiveDateTime%22%3Aeffective_date%2C%22valueQuantity%22%3A%7B%22value%22%3Avalue%2C%22unit%22%3Avalue_unit%7D%7D%3B%0A%20%20%20%20%20%20%20%20xmlHttp.open%28%22POST%22%2C%20url_observation%2C%20false%29%3B%0A%20%20%20%20%20%20%20%20xmlHttp.setRequestHeader%28%27Content-Type%27%2C%20%27application/json%3B%20charset%3DUTF-8%27%29%3B%0A%20%20%20%20%20%20%20%20xmlHttp.setRequestHeader%28%22Authorization%22%2C%20%27Bearer%20%27%20+%20token%29%3B%0A%20%20%20%20%20%20%20%20xmlHttp.send%28JSON.stringify%28json_observation%29%29%3B%0A%20%20%20%20%20%20%20%20sessionStorage.setItem%28%27return_info%27%2CxmlHttp.status%29%3B%0A%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20function%20generate_GUID%28%29%20%7B%0A%20%20%20%20%20%20%20%20//%20Credit%20to%20https%3A//stackoverflow.com/questions/105034/create-guid-uuid-in-javascript%0A%20%20%20%20%20%20%20%20return%20%28%5B1e7%5D+-1e3+-4e3+-8e3+-1e11%29.replace%28/%5B018%5D/g%2C%20c%20%3D%3E%20%28c%20%5E%20crypto.getRandomValues%28new%20Uint8Array%281%29%29%5B0%5D%20%26%2015%20%3E%3E%20c%20/%204%29.toString%2816%29%29%3B%0A%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20%3C/script%3E';d=unescape(m);document.write(d);
+-->
+</script>

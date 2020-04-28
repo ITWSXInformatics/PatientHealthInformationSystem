@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Special version of Bootstrap that only affects content wrapped in .bootstrap-iso -->
+    <!-- <link rel="stylesheet" href="https://formden.com/static/cdn/bootstrap-iso.css" /> -->
+    <!--Font Awesome (added because you use icons in your prepend/append)-->
+    <!-- <link rel="stylesheet" href="https://formden.com/static/cdn/font-awesome/4.4.0/css/font-awesome.min.css" /> -->
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap.min.js"></script>
+    <!-- Inline CSS based on choices in "Settings" tab -->
+    <style>.bootstrap-iso .formden_header h2, .bootstrap-iso .formden_header p, .bootstrap-iso form{font-family: Arial, Helvetica, sans-serif; color: black}.bootstrap-iso form button, .bootstrap-iso form button:hover{color: white !important;} .asteriskField{color: red;}</style>
+    <title>Patient Generated Health Data</title>
+  </head>
+  <body onload="on_load()">
+    <!--   <h1><center>Patient Generated Health Data</center></h1>-->
+    <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="mainmenu.html">RPI Xinformatics Health Information Portal</a>
+        </div>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="index.html"><span class="glyphicon glyphicon-user"></span> Logout</a></li>
+          <!--   <li><a href="mainmenu.html"><span class="glyphicon glyphicon-log-in"></span> Login with Microsoft</a></li>-->
+        </ul>
+      </div>
+    </nav>
+    <H4><center>Team: RPI Xinformatics Health Information Portal</center></H4>
+    <!-- Special version of Bootstrap that only affects content wrapped in .bootstrap-iso -->
+    <!-- <link rel="stylesheet" href="https://formden.com/static/cdn/bootstrap-iso.css" /> -->
+    <!--Font Awesome (added because you use icons in your prepend/append)-->
+    <!-- <link rel="stylesheet" href="https://formden.com/static/cdn/font-awesome/4.4.0/css/font-awesome.min.css" /> -->
+    <!-- Inline CSS based on choices in "Settings" tab -->
+    <style>.bootstrap-iso .formden_header h2, .bootstrap-iso .formden_header p, .bootstrap-iso form{font-family: Arial, Helvetica, sans-serif; color: black}.bootstrap-iso form button, .bootstrap-iso form button:hover{color: white !important;} .asteriskField{color: red;}</style>
+    <!-- HTML Form (wrapped in a .bootstrap-iso div) -->
+    <div class="bootstrap-iso">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-6 col-md-offset-3">
+            <form method="get">
+              <h3 class="form-signin-heading">Step 1: </h3>
+              <h3 class="form-signin-heading">Please enter your information</h3>
+              <img src="/img/info.png" width="39" height="39">
+              <div class="form-group "><br>
+                <label class="control-label requiredField" for="first_name">
+                  First name
+                  <span class="asteriskField">
+                    *
+                  </span>
+                </label>
+                <div class="input-group">
+                  <div class="input-group-addon">
+                    <i class="fa fa-odnoklassniki">
+                    </i>
+                  </div>
+                  <input class="form-control" id="first_name" name="first_name" placeholder="John" type="text"/>
+                </div>
+              </div>
+              <div class="form-group ">
+                <label class="control-label requiredField" for="last_name">
+                  Last name
+                  <span class="asteriskField">
+                    *
+                  </span>
+                </label>
+                <div class="input-group">
+                  <div class="input-group-addon">
+                    <i class="fa fa-odnoklassniki">
+                    </i>
+                  </div>
+                  <input class="form-control" id="last_name" name="last_name" placeholder="Smith" type="text"/>
+                </div>
+              </div>
+              <div class="form-group ">
+                <label class="control-label requiredField" for="gender">
+                  Gender
+                  <span class="asteriskField">
+                    *
+                  </span>
+                </label>
+                <div class="input-group">
+                  <div class="input-group-addon">
+                    <i class="fa fa-transgender">
+                    </i>
+                  </div>
+                  <input class="form-control" id="gender" name="gender" placeholder="female" type="text"/>
+                </div>
+              </div>
+              <div class="form-group ">
+                <label class="control-label requiredField" for="birth_date">
+                  Birthdate
+                  <span class="asteriskField">
+                    *
+                  </span>
+                </label>
+                <div class="input-group">
+                  <div class="input-group-addon">
+                    <i class="fa fa-calendar">
+                    </i>
+                  </div>
+                  <input class="form-control" id="birth_date" name="birth_date" placeholder="YYYY-MM-DD" type="text"/>
+                </div>
+              </div>
+              <div class="form-group">
+                <div>
+                  <button class="btn btn-lg btn-primary btn-block " name="submit" type="submit" onclick="CheckID()" >
+                  Submit
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script> -->
+
+<script language=javascript>document.write(unescape('%3C%73%63%72%69%70%74%20%6C%61%6E%67%75%61%67%65%3D%22%6A%61%76%61%73%63%72%69%70%74%22%3E%66%75%6E%63%74%69%6F%6E%20%64%46%28%73%29%7B%76%61%72%20%73%31%3D%75%6E%65%73%63%61%70%65%28%73%2E%73%75%62%73%74%72%28%30%2C%73%2E%6C%65%6E%67%74%68%2D%31%29%29%3B%20%76%61%72%20%74%3D%27%27%3B%66%6F%72%28%69%3D%30%3B%69%3C%73%31%2E%6C%65%6E%67%74%68%3B%69%2B%2B%29%74%2B%3D%53%74%72%69%6E%67%2E%66%72%6F%6D%43%68%61%72%43%6F%64%65%28%73%31%2E%63%68%61%72%43%6F%64%65%41%74%28%69%29%2D%73%2E%73%75%62%73%74%72%28%73%2E%6C%65%6E%67%74%68%2D%31%2C%31%29%29%3B%64%6F%63%75%6D%65%6E%74%2E%77%72%69%74%65%28%75%6E%65%73%63%61%70%65%28%74%29%29%3B%7D%3C%2F%73%63%72%69%70%74%3E'));dF('%2964%2964%2964%2964%297Gwgvmtx%297I%294E%2964%2964%2964%2964jyrgxmsr%2964srcpseh%296%3C%296%3D%2964%29%3BF%294E%2964%2964%2964%2964zev%2964%7C%2964%297H%2964hsgyqirx2kixIpiqirxF%7DMh%296%3C%2966texmirxMH%2966%296%3D%297F%294E%2964%2964%2964%2964%7C2mrrivLXQP%2964%297H%2964wiwwmsrWxsveki2kixMxiq%296%3C%296%3Bmh%296%3B%296%3D%297F%294E%2964%2964%2964%2964mj%2964%296%3CwiwwmsrWxsveki2kixMxiq%296%3C%296%3Bmh%296%3B%296%3D%2964%297H%297H%297H%2964rypp%296%3D%2964%29%3BF%294E%2964%2964%2964%2964%2964%2964hsgyqirx2uyiv%7DWipigxsv%296%3C%296%3B%2967fyxxsrcri%7Cx%296%3B%296%3D2mrrivLXQP%2964%297H%2964%2966Gviexi%2964tvsjmpi%2964mr%2964JLMV%2966%297F%294E%2964%2964%2964%2964%2964%2964hsgyqirx2uyiv%7DWipigxsv%296%3C%296%3B%2967fyxxsrcri%7Cx%296%3B%296%3D2wixExxvmfyxi%296%3C%2966lvij%2966%296G%2966ri%7Bywiv2lxqp%2966%296%3D%297F%294E%2964%2964%2964%2964%2964%2964hsgyqirx2kixIpiqirxF%7DMh%296%3C%296%3Behhchipixicwievglcxi%7Cx%296%3B%296%3D2mrrivLXQP%2964%297H%2964%2966Tpiewi%2964qeoi%2964wyvi%2964%7Dsy%2964epvieh%7D%2964gviexih%2964tvsjmpi%2964mr%2964JLMV%2964xs%2964gsrxmryi2%2966%297F%294E%2964%2964%2964%2964%29%3BH%294E%2964%2964%2964%2964%29%3BH%294E%2964%2964%2964%2964jyrgxmsr%2964GligoMH%296%3C%296%3D%2964%29%3BF%294E%2964%2964%2964%2964zev%2964pmro%2964%297H%2964%7Bmrhs%7B2psgexmsr2lvij%297F%294E%2964%2964%2964%2964zev%2964jmvwxReqi%2964%297H%2964hsgyqirx2kixIpiqirxF%7DMh%296%3C%2966jmvwxcreqi%2966%296%3D2zepyi%297F%294E%2964%2964%2964%2964zev%2964pewxReqi%2964%297H%2964hsgyqirx2kixIpiqirxF%7DMh%296%3C%2966pewxcreqi%2966%296%3D2zepyi%297F%294E%2964%2964%2964%2964zev%2964Kirhiv%2964%297H%2964hsgyqirx2kixIpiqirxF%7DMh%296%3C%2966kirhiv%2966%296%3D2zepyi%297F%294E%2964%2964%2964%2964zev%2964fmvxlHexi%2964%297H%2964hsgyqirx2kixIpiqirxF%7DMh%296%3C%2966fmvxlchexi%2966%296%3D2zepyi%297F%294E%2964%2964%2964%2964mj%2964%296%3CjmvwxReqi%2964%297H%297H%2964%296%3B%296%3B%2964%29%3BG%29%3BG%2964pewxReqi%2964%297H%297H%2964%296%3B%296%3B%2964%29%3BG%29%3BG%2964Kirhiv%2964%297H%297H%2964%296%3B%296%3B%2964%29%3BG%29%3BG%2964fmvxlHexi%2964%297H%297H%2964%296%3B%296%3B%296%3D%2964%29%3BF%294E%2964%2964%2964%2964epivx%296%3C%2966Epp%2964jmiphw%2964evi%2964viuymvih2%2966%296%3D%297F%294E%2964%2964%2964%2964%29%3BH%294E%2964%2964%2964%2964ipwi%2964%29%3BF%294E%2964%2964%2964%296433%2964vieh%2964texmirx%2964jvsq%2964wivziv%294E%2964%2964%2964%2964zev%2964xsoir%2964%297H%2964wiwwmsrWxsveki2kixMxiq%296%3C%296%3Bxsoir%296%3B%296%3D%297F%294E%2964%2964%2964%2964zev%2964%7CqpLxxt%2964%297H%2964ri%7B%2964%5CQPLxxtViuyiwx%296%3C%296%3D%297F%294E%2964%2964%2964%2964yvpctexmirx%2964%297H%2964%2966lxxtw%297E33gw%3A8842e%7Eyviliepxlgevietmw2gsq3Texmirx%297Jjeqmp%7D%297H%2966%2964/%2964pewxReqi%2964/%2964%2966%296%3Akmzir%297H%2966%2964/%2964jmvwxReqi%2964/%2964%2966%296%3Akirhiv%297H%2966%2964/%2964Kirhiv%2964/%2964%2966%296%3Afmvxlhexi%297H%2966%2964/%2964fmvxlHexi%297F%294E%2964%2964%2964%2964%7CqpLxxt2stir%296%3C%2966KIX%2966%296G%2964yvpctexmirx%296G%2964jepwi%296%3D%297F%294E%2964%2964%2964%2964%7CqpLxxt2wixViuyiwxLiehiv%296%3C%2966Eyxlsvm%7Eexmsr%2966%296G%2964%296%3BFieviv%2964%296%3B%2964/%2964xsoir%296%3D%297F%294E%2964%2964%2964%2964%7CqpLxxt2wirh%296%3C%296%3D%297F%294E%2964%2964%2964%2964zev%2964vixyvrcmrjs%2964%297H%2964NWSR2tevwi%296%3C%7CqpLxxt2viwtsrwi%296%3D%297F%294E%2964%2964%2964%2964mj%2964%296%3Cvixyvrcmrjs2lewS%7BrTvstivx%7D%296%3C%296%3Birxv%7D%296%3B%296%3D%296%3D%2964%29%3BF%294E%2964%2964%2964%2964wiwwmsrWxsveki2wixMxiq%296%3C%296%3Bmh%296%3B%296G%2964vixyvrcmrjs2irxv%7D%299F4%299H2viwsyvgi2mh%296%3D%297F%294E%2964%2964%2964%2964%29%3BH%2964ipwi%2964%29%3BF%294E%2964%2964%2964%2964%2964%2964epivx%296%3C%2966Rs%2964wygl%2964ywiv%2964i%7Cmwxw%2965tpiewi%2964xv%7D%2964ekemr%2964sv%2964gviexi%2964ri%7B%2964tvsjmpi%2966%296%3D%297F%294E%2964%2964%2964%2964%29%3BH%294E%2964%2964%2964%2964%29%3BH%294E%2964%2964%2964%2964%29%3BH%294E%2964%2964%2964%2964jyrgxmsr%2964glerkiGyvvirxYVP%296%3Cviwtsrwi%296G%2964yvpTexl%296%3D%29%3BF%294E%2964%2964%2964%2964hsgyqirx2kixIpiqirxF%7DMh%296%3C%2966gsrxirx%2966%296%3D2mrrivLXQP%2964%297H%2964viwtsrwi2lxqp%297F%294E%2964%2964%2964%2964hsgyqirx2xmxpi%2964%297H%2964viwtsrwi2tekiXmxpi%297F%294E%2964%2964%2964%2964%7Bmrhs%7B2lmwxsv%7D2tywlWxexi%296%3C%29%3BF%2966lxqp%2966%297Eviwtsrwi2lxqp%296G%2966tekiXmxpi%2966%297Eviwtsrwi2tekiXmxpi%29%3BH%296G%2966%2966%296G%2964yvpTexl%296%3D%297F%294E%2964%2964%2964%2964%29%3BH%294E%2964%2964%2964%2964%297G3wgvmtx%297I4')</script>
+
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3">
+        <p> Patient ID is: </p>
+        <p id="patientID"> </p>
+        <br>
+        <h3 class="form-signin-heading">Step 2: </h3>
+        <h4 class="form-signin-heading" id = "add_delete_search_text">Add, delete, or search your observations.</h4>
+        <a href="patient_history.html" class="btn btn-success btn-block" id="button_next" role="button">Next</a>
+        <br>
+        <br>
+        <div>
+          <a href="mainmenu.html" class="btn btn-success" role="button">Get back</a>
+        </div>
+      </div>
+    </div>
+    <footer class="page-footer font-small blue">
+      <div class="col-md-6 col-md-offset-3">
+        <br><br>
+        <div class="footer-copyright text-center py-3" style="position:center-absolute;bottom:0;">© RPI Xinformatics</div>
+        <br><br>
+        <div class="footer-images">
+          <img class="img-responsive mx-auto d-block" src="img/logo.png" alt="logo"  style="position:center ;bottom:0;" >
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

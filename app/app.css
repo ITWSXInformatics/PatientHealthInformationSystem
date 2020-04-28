@@ -1,0 +1,20 @@
+body {
+	background-image: url('/newpghd1frontend/img/logo.png');
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-position: center bottom;
+	background-size: 40% auto;
+}
+
+canvas{
+    margin: 0 auto;
+}
+
+.popover-title {
+    color: grey;
+    font-size: 20px;
+}
+.popover-content {
+    color: black;
+    font-size: 15px;
+}
